@@ -76,19 +76,4 @@ SWITCH(
 
 
 // ==========================================
-// 3. TÍTULO DINÂMICO DO GRÁFICO
-// ==========================================
-
-Titulo Evolucao Mensal = 
-"Evolução Mensal - " & SELECTEDVALUE(dMetricas[Nome_Metrica], "Receita Total")
-
-
-// ==========================================
-// 4. ANÁLISE DE PARETO / REPRESENTATIVIDADE
-// ==========================================
-
-% Acumulado Receita = 
-VAR ReceitaTotalGeral = CALCULATE([Receita Total], ALLSELECTED(fVendas))
-VAR ReceitaAtual = [Receita Total]
-RETURN
-DIVIDE(ReceitaAtual, ReceitaTotalGeral, 0)
+// 3. TÍTULO DINÂMICO DO
