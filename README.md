@@ -1,7 +1,9 @@
 # 📊 Dashboard Executivo de Desempenho Comercial | Power BI
 
 Este repositório contém um projeto completo de Business Intelligence desenvolvido no **Power BI**, focado na análise de dados comerciais, acompanhamento de KPIs, comportamento de vendas por canal, segmento e evolução temporal.
+## 🖼️ Demonstração do Painel
 
+![Dashboard Preview](dashboard-preview.png)
 ---
 
 ## 🎯 Objetivo do Projeto
@@ -76,4 +78,19 @@ SWITCH(
 
 
 // ==========================================
-// 3. TÍTULO DINÂMICO DO
+// 3. TÍTULO DINÂMICO DO GRÁFICO
+// ==========================================
+
+Titulo Evolucao Mensal = 
+"Evolução Mensal - " & SELECTEDVALUE(dMetricas[Nome_Metrica], "Receita Total")
+
+
+// ==========================================
+// 4. ANÁLISE DE PARETO / REPRESENTATIVIDADE
+// ==========================================
+
+% Acumulado Receita = 
+VAR ReceitaTotalGeral = CALCULATE([Receita Total], ALLSELECTED(fVendas))
+VAR ReceitaAtual = [Receita Total]
+RETURN
+DIVIDE(ReceitaAtual, ReceitaTotalGeral, 0)
